@@ -6,7 +6,6 @@
 #include <vector>
 
 #include "ball.h"
-#include "paddle.h"
 #include "block.h"
 
 
@@ -14,10 +13,10 @@ class Game
 {
 public:
     Game()
-        : m_window_{sf::VideoMode(800, 500), "Breakout!"}
+        : m_window_{sf::VideoMode(800, 500), "Breakout!"} //dim{800,500}
         {
-            m_window_.setFramerateLimit(60);
-            m_blocks_.reserve(50);
+            m_window_.setFramerateLimit(200);
+            m_blocks_.reserve(50); //num_blocks{50}
 
             for(int row = 0; row< 5; ++row)
             {
@@ -37,7 +36,6 @@ public:
 private:    
     sf::RenderWindow m_window_;
     std::vector<Block> m_blocks_;
-    Paddle m_paddle_;
-    Ball m_ball_;
+    std::array<Ball,10> m_ball_s;
 };
 

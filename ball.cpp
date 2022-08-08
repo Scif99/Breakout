@@ -19,9 +19,8 @@ void handleCollisions(Ball& ball, Block& block)
 {
     if (ball.m_shape_.getGlobalBounds().intersects(block.m_shape_.getGlobalBounds()))
     {
-        assert(block.m_hits_left_!=0); //A ball should not hit a block that has 0 left. 0 left implies that the block should be destroyed.
-
         ball.m_velocity_.y *= -1.f;
-        --block.m_hits_left_;
+
+        if(block.m_hits_left_>0)--block.m_hits_left_; //Note that in the main loop, we handle all collisions before updating.
     }
 }
