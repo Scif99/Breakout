@@ -10,11 +10,11 @@ class Block
 public:
     Block(float x, float y, int i);
 
-    friend void handleCollisions(Ball& ball, Block& block);
+    friend void handleCollisions(Ball& ball, Block& block) noexcept;
     void update();
     void draw(sf::RenderWindow& window) {window.draw(m_shape_);}
+    int get_hits() const noexcept{return m_hits_left_;}
 
-    int get_hits() const {return m_hits_left_;}
 private:
     sf::RectangleShape m_shape_;
     int m_hits_left_;

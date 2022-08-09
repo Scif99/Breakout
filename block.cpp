@@ -1,5 +1,6 @@
-#include "block.h"
 #include <cassert>
+
+#include "block.h"
 
 Block::Block(float x, float y, int i)
         : m_shape_{sf::Vector2f(80.f,20.f)}, m_hits_left_{i} //dim{80.f,20.f}

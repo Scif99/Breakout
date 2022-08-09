@@ -15,9 +15,9 @@ void Ball::update(sf::RenderWindow& window)
     m_shape_.move(m_velocity_);
 }
 
-void handleCollisions(Ball& ball, Block& block)
+void handleCollisions(Ball& ball, Block& block) noexcept
 {
-    if (ball.m_shape_.getGlobalBounds().intersects(block.m_shape_.getGlobalBounds()))
+    if (ball.m_shape_.getGlobalBounds().intersects(block.m_shape_.getGlobalBounds())) //THIS ONLY CHECKS VERTICAL COLLISIONS!
     {
         ball.m_velocity_.y *= -1.f;
 
